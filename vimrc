@@ -77,17 +77,7 @@ set stl+=[%{&fileformat}
 set stl+=\ %{&fileencoding}]
 set stl+=%y
 
-" GUI
-set background=dark
-set number
-colorscheme xoria256
-if has("gui_running")
-    colorscheme xoria256
-    winsize 85 40
-    set cursorline
-    set guioptions-=T
-    set guifont=Monaco:h14
-endif
+colorscheme evening
 
 " Mappings
 " Remove the '^M' crap Windows puts in sometimes.
