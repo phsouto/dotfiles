@@ -3,5 +3,3 @@ Meus dotfiles. :)
 Simples e diretos ao ponto.
 
 Para atualizar/instalar: `sh setup.sh`
-Para coletar os arquivos: `sh update.sh`
-
