@@ -7,7 +7,7 @@ mv ~/.vimrc ~/.vimrc.orig
 mv ~/.gitconfig ~/.gitconfig.orig
 
 # Link to repo's files
-ln -s ./bash_profile ~/.bash_profile
-ln -s ./bashrc ~/.bashrc
-ln -s ./vimrc ~/.vimrc
-ln -s ./gitconfig ~/.gitconfig
+cp ./bash_profile ~/.bash_profile
+cp ./bashrc ~/.bashrc
+cp ./vimrc ~/.vimrc
+cp ./gitconfig ~/.gitconfig
