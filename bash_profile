@@ -5,14 +5,14 @@ export PATH=~/bin:$PATH
 export HISTCONTROL=ignoredups
 
 # Cores!
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="4;33"
-export CLICOLOR=1
 if [ $(uname -s) = "Darwin" ]; then # Se eu estiver num Mac...
+    export GREP_OPTIONS="--color=auto"
+    export GREP_COLOR="4;33"
+    export CLICOLOR=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
     alias ls="ls -G"
 else
-    export LS_COLORS='di=94:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
+    export LS_COLORS='di=94:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
     alias ls="ls --color"
 fi
 
@@ -40,14 +40,11 @@ function prompt {
     local RED="\[\033[0;31m\]"
     local B_RED="\[\033[1;31m\]"
     local YELLOW="\[\033[0;33m\]"
-    local B_GREEN="\[\033[1;32m\]"
+    local GREEN="\[\033[0;32m\]"
+    local CYAN="\[\033[0;36m\]"
     local NONE="\[\033[0m\]"
     
-    if [ $(whoami) = "root" ]; then
-        PS1="$B_RED[\w]$NONE\$ "
-    else
-        PS1="$B_GREEN[\w]$NONE\$ "
-    fi
+    PS1="\n$GREEN\u@\h$NONE:$CYAN\w$NONE> "
 }
 
 # Mais Aliases!
@@ -64,4 +61,7 @@ alias gl="git log -1"       # Mostrar log apenas do ultimo commit
 alias sbp="source ~/.bash_profile"    # sbp = 'source bash_profile'
 alias ebp="vim ~/.bash_profile"       # ebp = 'edit bash_profile'
 
-prompt
+#prompt
+
+# MOTD
+fortune | cowsay -f tux
