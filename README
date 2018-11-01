@@ -3,3 +3,7 @@ Meus dotfiles. :)
 Simples e diretos ao ponto.
 
 Para atualizar/instalar: `sh setup.sh`
+
+Requisitos:
+    cowsay
+    fortune
