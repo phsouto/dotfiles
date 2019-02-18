@@ -11,6 +11,7 @@ set laststatus=2
 set showcmd
 set showmode
 set ruler
+set number
 set backspace=eol,start,indent
 
 " Tabs = 4 spaces 
@@ -77,7 +78,7 @@ set stl+=[%{&fileformat}
 set stl+=\ %{&fileencoding}]
 set stl+=%y
 
-colorscheme evening
+colorscheme slate
 
 " Mappings
 " Remove the '^M' crap Windows puts in sometimes.

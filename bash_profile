@@ -3,6 +3,8 @@ export PATH=~/bin:$PATH
 
 # Sem entradas repetidas no historico
 export HISTCONTROL=ignoredups
+shopt -s histappend
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Cores!
 if [ $(uname -s) = "Darwin" ]; then # Se eu estiver num Mac...
@@ -44,7 +46,7 @@ function prompt {
     local CYAN="\[\033[0;36m\]"
     local NONE="\[\033[0m\]"
     
-    PS1="\n$GREEN\u@\h$NONE:$CYAN\w$NONE> "
+    PS1="$GREEN\u@\h$NONE:$CYAN\w$NONE> "
 }
 
 # Mais Aliases!
@@ -59,9 +61,10 @@ alias gl="git log -1"       # Mostrar log apenas do ultimo commit
 
 # Alias para 'sourcear' e editar este arquivo
 alias sbp="source ~/.bash_profile"    # sbp = 'source bash_profile'
-alias ebp="vim ~/.bash_profile"       # ebp = 'edit bash_profile'
+alias ebp="code ~/.bash_profile"       # ebp = 'edit bash_profile'
 
-#prompt
+prompt
 
 # MOTD
-fortune | cowsay -f tux
+#fortune | cowsay -f dragon
+fortune
