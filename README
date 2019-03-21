@@ -1,9 +1,5 @@
 Meus dotfiles. :)
 
 Simples e diretos ao ponto.
+Contém configurações úteis para Linux e Windows, e o que mais exigir arquivos de configuração.
 
-Para atualizar/instalar: `sh setup.sh`
-
-Requisitos:
-    cowsay
-    fortune
