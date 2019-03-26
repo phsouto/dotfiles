@@ -14,14 +14,14 @@ dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-releas
 dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # 'Instalado ferramentas básicas...'
-dnf install -y nano vim htop 
+dnf install -y nano vim htop tmux 
 
 # 'Codecs...'
 dnf install -y gstreamer1-{ffmpeg,libav,plugins-{good,ugly,bad{,-free,-nonfree}}} --setopt=strict=0
 dnf install -y gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0
 
 # 'Instalando ferramentas extras...'
-dnf install -y vlc chromium qbittorrent gnome-tweaks
+dnf install -y vlc chromium qbittorrent
 dnf install -y neofetch
 dnf install -y fortune
 dnf install -y unrar
@@ -39,4 +39,5 @@ sensors-detect --auto
 cp /etc/hosts /etc/hosts.orig \
     && curl https://someonewhocares.org/hosts/hosts > /tmp/hosts \
     && mv /tmp/hosts /etc/hosts
+    && rm /tmp/hosts
 
