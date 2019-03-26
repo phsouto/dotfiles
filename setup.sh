@@ -14,8 +14,13 @@ if [ -f "~/.gitconfig" ]; then
     mv ~/.gitconfig ~/.gitconfig.orig
 fi
 
+if [ -f "~/.Xresources" ]; then
+    mv ~/.Xresources ~/.Xresources.orig
+fi
+
 # Copy repo files
 cp ./bash_profile ~/.bash_profile
 cp ./bashrc ~/.bashrc
 cp ./vimrc ~/.vimrc
 cp ./gitconfig ~/.gitconfig
+cp ./Xresources ~/.Xresources
