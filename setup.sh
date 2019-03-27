@@ -23,4 +23,8 @@ cp ./bash_profile ~/.bash_profile
 cp ./bashrc ~/.bashrc
 cp ./vimrc ~/.vimrc
 cp ./gitconfig ~/.gitconfig
-cp ./Xresources ~/.Xresources
+
+if [ $(uname -s) != "Darwin" ]; then
+    cp ./Xresources ~/.Xresources
+fi
+
