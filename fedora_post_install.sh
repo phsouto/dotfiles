@@ -21,7 +21,7 @@ dnf install -y gstreamer1-{ffmpeg,libav,plugins-{good,ugly,bad{,-free,-nonfree}}
 dnf install -y gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0
 
 # 'Instalando ferramentas extras...'
-dnf install -y vlc chromium qbittorrent
+dnf install -y chromium qbittorrent
 dnf install -y neofetch
 dnf install -y fortune
 dnf install -y unrar
@@ -38,6 +38,6 @@ sensors-detect --auto
 # 'Configurando o /etc/hosts'
 cp /etc/hosts /etc/hosts.orig \
     && curl https://someonewhocares.org/hosts/hosts > /tmp/hosts \
-    && mv /tmp/hosts /etc/hosts
+    && mv /tmp/hosts /etc/hosts \
     && rm /tmp/hosts
 
