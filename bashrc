@@ -53,17 +53,15 @@ function prompt {
 }
 
 if [ $(uname -o) = "Android" ]; then
-    DIRECTORY="/data/data/com.termux/files/home/storage/downloads"
+    DIRECTORY="~/storage/downloads"
     if [ -d "$DIRECTORY/pods" ]; then
         mkdir -p $DIRECTORY/pods 
     fi
     if [ -d "$DIRECTORY/vids" ]; then
         mkdir -p $DIRECTORY/vids 
     fi
-    ln -s $DIRECTORY/pods $HOME/pods
-    ln -s $DIRECTORY/vids $HOME/vids
-    alias gpods="cd $HOME/pods"
-    alias gvids="cd $HOME/vids"
+    alias gpods="cd ~/storage/downloads/pods"
+    alias gvids="cd ~/storage/downloads/vids"
 fi
 
 # Mais Aliases!
