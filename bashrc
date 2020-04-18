@@ -53,7 +53,7 @@ function prompt {
 }
 
 if [ $(uname -o) = "Android" ]; then
-    local DIRECTORY="/data/data/com.termux/files/home/storage/downloads"
+    DIRECTORY="/data/data/com.termux/files/home/storage/downloads"
     if [ -d "$DIRECTORY/pods" ]; then
         mkdir -p $DIRECTORY/pods 
     fi
