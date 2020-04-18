@@ -19,6 +19,7 @@ elif [ $(uname -s) = "Linux" ]; then
     alias ls="ls --color"
 fi
 
+function prompt {
 ##############################################################################
 # Text color codes:                                                          #
 #                                                                            #
@@ -35,9 +36,6 @@ fi
 #                    36 = Cyan              46 = Cyan                        #
 #                    37 = White             47 = White                       #
 ##############################################################################
-
-# Ajustando o prompt (fancy function, eh?)
-function prompt {
     local BLUE="\[\033[0;34m\]"
     local B_BLUE="\[\033[1;34m\]"
     local RED="\[\033[0;31m\]"
@@ -52,8 +50,21 @@ function prompt {
     else
         PS1="[$B_BLUE\W$NONE]\$ "
     fi
-
 }
+
+if [ $(uname -o) = "Android" ]; then
+    local DIRECTORY="/data/data/com.termux/files/home/storage/downloads"
+    if [ -d "$DIRECTORY/pods" ]; then
+        mkdir -p $DIRECTORY/pods 
+    fi
+    if [ -d "$DIRECTORY/vids" ]; then
+        mkdir -p $DIRECTORY/vids 
+    fi
+    ln -s $DIRECTORY/pods $HOME/pods
+    ln -s $DIRECTORY/vids $HOME/vids
+    alias gpods="cd $HOME/pods"
+    alias gvids="cd $HOME/vids"
+fi
 
 # Mais Aliases!
 alias ll="ls -Alh"
@@ -66,8 +77,10 @@ alias gs="git status"
 alias gl="git log -1"       # Mostrar log apenas do ultimo commit
 
 # Alias para 'sourcear' e editar este arquivo
-alias sbp="source ~/.bash_profile"    # sbp = 'source bash_profile'
-alias ebp="vim ~/.bash_profile"       # ebp = 'edit bash_profile'
+alias sbp="source ~/.bashrc"    # sbp = 'source bash_profile'
+alias ebp="vim ~/.bashrc"       # ebp = 'edit bash_profile'
 
 # Chama função para configurar o prompt
 prompt
+
+
