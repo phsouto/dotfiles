@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 # Backup of existent files
-if [ -f "~/.bash_profile" ]; then
+if [ -f ~/.bash_profile ]; then
     mv ~/.bash_profile ~/.bash_profile.orig
 fi
-if [ -f "~/.bashrc" ]; then
+if [ -f ~/.bashrc ]; then
     mv ~/.bashrc ~/.bashrc.orig
 fi
-if [ -f "~/.vimrc" ]; then
+if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.orig
 fi
-if [ -f "~/.gitconfig" ]; then
+if [ -f ~/.gitconfig ]; then
     mv ~/.gitconfig ~/.gitconfig.orig
 fi
 
-if [ -f "~/.Xresources" ]; then
+if [ -f ~/.Xresources ]; then
     mv ~/.Xresources ~/.Xresources.orig
 fi
 
