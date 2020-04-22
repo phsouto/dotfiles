@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# Path
+if [ ! -d ~/bin ]; then
+    mkdir ~/bin
+fi
 export PATH=~/bin:$PATH
 
 # Sem entradas repetidas no historico
@@ -20,22 +22,20 @@ elif [ $(uname -s) = "Linux" ]; then
 fi
 
 function prompt {
-##############################################################################
-# Text color codes:                                                          #
-#                                                                            #
-# How this works:                                                            #
-# \[\033[attribute code; text color code; background color code m\]          #
-#                                                                            #
-# Attributes:        Text color codes:      Background Color Codes:          #
-# 00 = None          30 = Black             40 = Black                       #
-# 01 = Bold          31 = Red               41 = Red                         #
-# 04 = Unserscore    32 = Green             42 = Green                       #
-# 05 = Blink         33 = Yellow            43 = Yellow                      #
-# 07 = Reverse       34 = Blue              44 = Blue                        #
-# 08 = Concealed     35 = Magenta           45 = Magenta                     #
-#                    36 = Cyan              46 = Cyan                        #
-#                    37 = White             47 = White                       #
-##############################################################################
+# Text color codes:
+#
+# How this works:
+# \[\033[attribute code; text color code; background color code m\]
+#
+# Attributes:        Text color codes:      Background Color Codes:
+# 00 = None          30 = Black             40 = Black
+# 01 = Bold          31 = Red               41 = Red
+# 04 = Unserscore    32 = Green             42 = Green
+# 05 = Blink         33 = Yellow            43 = Yellow
+# 07 = Reverse       34 = Blue              44 = Blue
+# 08 = Concealed     35 = Magenta           45 = Magenta
+#                    36 = Cyan              46 = Cyan
+#                    37 = White             47 = White
     local BLUE="\[\033[0;34m\]"
     local B_BLUE="\[\033[1;34m\]"
     local RED="\[\033[0;31m\]"
@@ -44,7 +44,7 @@ function prompt {
     local GREEN="\[\033[0;32m\]"
     local CYAN="\[\033[0;36m\]"
     local NONE="\[\033[0m\]"
-    
+
    if [ "$EUID" == 0 ]; then
         PS1="$B_RED\u$NONE [$B_BLUE\W$NONE]\$ "
     else
@@ -54,11 +54,11 @@ function prompt {
 
 if [ $(uname -o) = "Android" ]; then
     DIRECTORY="~/storage/downloads"
-    if [ -d "$DIRECTORY/pods" ]; then
-        mkdir -p $DIRECTORY/pods 
+    if [ ! -d "$DIRECTORY/pods" ]; then
+        mkdir -p $DIRECTORY/pods
     fi
-    if [ -d "$DIRECTORY/vids" ]; then
-        mkdir -p $DIRECTORY/vids 
+    if [ ! -d "$DIRECTORY/vids" ]; then
+        mkdir -p $DIRECTORY/vids
     fi
     alias gpods="cd ~/storage/downloads/pods"
     alias gvids="cd ~/storage/downloads/vids"
@@ -74,11 +74,13 @@ alias cls="clear"
 alias gs="git status"
 alias gl="git log -1"       # Mostrar log apenas do ultimo commit
 
+# Aliases para usar com o youtube-dl
+alias ytv="youtube-dl -ic"
+alias yta="youtube-dl -xic"
+
 # Alias para 'sourcear' e editar este arquivo
 alias sbp="source ~/.bashrc"    # sbp = 'source bash_profile'
 alias ebp="vim ~/.bashrc"       # ebp = 'edit bash_profile'
 
 # Chama função para configurar o prompt
 prompt
-
-
